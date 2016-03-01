@@ -18,7 +18,7 @@ app.service('teamService', function ($http, $q) {
 		});					//returns a promise
 	};
 	this.getTeamData = function(team) {  //fetch data of specific team
-		$q.defer();		//create deferred object
+		var dfd = $q.defer();		//create deferred object
 		var url = 'https://api.parse.com/1/classes/' + team;
 		$http.get(url)
 		.then (function(data) {  //data we get back from parse when GET request to specific url
@@ -34,9 +34,9 @@ app.service('teamService', function ($http, $q) {
         	}							//arrays are just like objects
         	results.wins = wins;  		//add wins property to results array
         	results.losses = losses;	//add losses property to results array
-        	deferred.resolve(results);	//resolve our deferred object
+        	dfd.resolve(results);	//resolve our deferred object
 		});
-		return deferred.promise;	// after modifying data recieved from api.parse,return promise on def object,
+		return dfd.promise;	// after modifying data recieved from api.parse,return promise on def object,
 	};
 
 });

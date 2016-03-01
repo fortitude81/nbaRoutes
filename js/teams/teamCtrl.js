@@ -11,13 +11,13 @@ app.controller('teamCtrl', function ($scope, $stateParams, teamService, teamData
     													// used to toggle the form to add a new game.
   };
 
-  if($routeParams.team === 'utahjazz'){		//check which team URL is currently on
+  if($stateParams.team === 'utahjazz'){		//check which team URL is currently on
       $scope.homeTeam = 'Utah Jazz';		//depending on team, set propery on scope called homeTeam
       $scope.logoPath = 'images/jazz-logo.png';  //points to image of team
-  } else if ($routeParams.team === 'losangeleslakers'){
+  } else if ($stateParams.team === 'losangeleslakers'){
       $scope.homeTeam = 'Los Angeles Lakers';
       $scope.logoPath = 'images/lakers-logo.png';
-  } else if ($routeParams.team === 'miamiheat') {
+  } else if ($stateParams.team === 'miamiheat') {
       $scope.homeTeam = 'Miami Heat';
       $scope.logoPath = 'images/heat-logo.png';
   }
